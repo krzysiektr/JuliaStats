@@ -108,7 +108,7 @@ annotate!(X,Y,Y,8)
 savefig("/home/krz/Pulpit/blog/figure/a01.png")
 ```
 
-![a01](/figure/a01.png)
+![a01](/assets/a01.png)
 
 <figure>
 <center>
