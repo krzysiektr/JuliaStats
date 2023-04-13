@@ -110,6 +110,8 @@ savefig("/home/krz/Pulpit/blog/figure/a01.png")
 
 ![a01](/assets/a01.png)
 
+![a01]({{ "/assets/a01.png" | relative_url }}) 
+
 <figure>
 <center>
 <img alt="png" src="/figure/a01.png">
