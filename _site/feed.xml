@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-13T17:32:07+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Język Julia</title><subtitle>Opis.</subtitle><entry><title type="html">Rozkład normalny</title><link href="http://localhost:4000/2023/03/05/Rozklad_normalny.html" rel="alternate" type="text/html" title="Rozkład normalny" /><published>2023-03-05T12:11:15+01:00</published><updated>2023-03-05T12:11:15+01:00</updated><id>http://localhost:4000/2023/03/05/Rozklad_normalny</id><content type="html" xml:base="http://localhost:4000/2023/03/05/Rozklad_normalny.html">\[f(x|\,\mu;\sigma)=N(\mu;\sigma)\]</content><author><name></name></author><summary type="html">\[f(x|\,\mu;\sigma)=N(\mu;\sigma)\]</summary></entry><entry><title type="html">Rozkład prawdopodobieństwa</title><link href="http://localhost:4000/2022/12/04/Rozklad_prawdopodobienstwa.html" rel="alternate" type="text/html" title="Rozkład prawdopodobieństwa" /><published>2022-12-04T14:34:47+01:00</published><updated>2022-12-04T14:34:47+01:00</updated><id>http://localhost:4000/2022/12/04/Rozklad_prawdopodobienstwa</id><content type="html" xml:base="http://localhost:4000/2022/12/04/Rozklad_prawdopodobienstwa.html">&lt;h1 id=&quot;rzut-monetą&quot;&gt;Rzut monetą&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-04-13T17:37:33+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Język Julia</title><subtitle>Opis.</subtitle><entry><title type="html">Rozkład normalny</title><link href="http://localhost:4000/2023/03/05/Rozklad_normalny.html" rel="alternate" type="text/html" title="Rozkład normalny" /><published>2023-03-05T12:11:15+01:00</published><updated>2023-03-05T12:11:15+01:00</updated><id>http://localhost:4000/2023/03/05/Rozklad_normalny</id><content type="html" xml:base="http://localhost:4000/2023/03/05/Rozklad_normalny.html">\[f(x|\,\mu;\sigma)=N(\mu;\sigma)\]</content><author><name></name></author><summary type="html">\[f(x|\,\mu;\sigma)=N(\mu;\sigma)\]</summary></entry><entry><title type="html">Rozkład prawdopodobieństwa</title><link href="http://localhost:4000/2022/12/04/Rozklad_prawdopodobienstwa.html" rel="alternate" type="text/html" title="Rozkład prawdopodobieństwa" /><published>2022-12-04T14:34:47+01:00</published><updated>2022-12-04T14:34:47+01:00</updated><id>http://localhost:4000/2022/12/04/Rozklad_prawdopodobienstwa</id><content type="html" xml:base="http://localhost:4000/2022/12/04/Rozklad_prawdopodobienstwa.html">&lt;h1 id=&quot;rzut-monetą&quot;&gt;Rzut monetą&lt;/h1&gt;
 
 &lt;p&gt;W jednorazowym rzucie monetą (próba Bernouliego) prawdopodobieństwo sukcesu wynosi $p=1/2$ np. wyrzucenie reszki. Jeśli eksperyment będzie polegać na trzykrotnym rzucie monetą (trzy próby Bernouliego) to otrzymamy próbę losową z rozkładu Bernoulliego (szczególny przypadek rozkładu dwumianowego) gdzie $1$ oznacza sukces natomiast $0$ porażkę.&lt;/p&gt;
 
@@ -87,18 +87,9 @@ to dokładne prawdopodobieństwo tego zdarzenia wyniesie:&lt;/p&gt;
     &lt;span class=&quot;n&quot;&gt;xlab&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Liczba sukcesów&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylab&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Prawdopodobieństwo&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;titlefontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Dwumianowy rozkład prawdopodobieństwa&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;annotate!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/krz/Pulpit/blog/figure/a01.png&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/.../a01.png&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/a01.png&quot; alt=&quot;a01&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/a01.png&quot; alt=&quot;a01&quot; /&gt;&lt;/p&gt;
-
-&lt;figure&gt;
-&lt;center&gt;
-&lt;img alt=&quot;png&quot; src=&quot;/figure/a01.png&quot; /&gt;
-&lt;/center&gt;
-&lt;/figure&gt;
 
 &lt;p&gt;Prawdopodobieństwo tego, że np. reszka wystąpi co najwyżej dwa razy (skumulowane prawdopodobieństwo) będzie równe:&lt;/p&gt;
 
@@ -123,13 +114,9 @@ to dokładne prawdopodobieństwo tego zdarzenia wyniesie:&lt;/p&gt;
     &lt;span class=&quot;n&quot;&gt;xlab&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Liczba sukcesów&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ylab&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Skumulowane prawdopodobieństwo&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;titlefontsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Skumulowany rozkład prawdopodobieństwa&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;annotate!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;X&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/krz/Pulpit/blog/figure/a02.png&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/.../a02.png&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;figure&gt;
-&lt;center&gt;
-&lt;img alt=&quot;png&quot; src=&quot;/figure/a02.png&quot; /&gt;
-&lt;/center&gt;
-&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/a02.png&quot; alt=&quot;a02&quot; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&quot;rzut-kostką-do-gry&quot;&gt;Rzut kostką do gry&lt;/h1&gt;
 
@@ -184,17 +171,13 @@ suma oczek będzie równa 6 wynosi:&lt;/p&gt;
       &lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Normal&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;scatter!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Binomial&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;collect&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keys&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c1&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;))),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Binomial&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;
          &lt;span class=&quot;n&quot;&gt;markerstrokecolor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;markercolor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alpha&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/krz/Pulpit/blog/figure/a03.png&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/.../a03.png&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 &lt;/details&gt;
 &lt;p&gt;&lt;br /&gt;
 &lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;center&gt;
-&lt;img alt=&quot;png&quot; src=&quot;/figure/a03.png&quot; /&gt;
-&lt;/center&gt;
-&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/a03.png&quot; alt=&quot;a03&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Dla dużych $n$ prawdopodobieństwo sukcesu $p=n_1/n$ ma asymptotycznie rozkład normalny gdzie:&lt;/p&gt;
 
@@ -226,17 +209,13 @@ suma oczek będzie równa 6 wynosi:&lt;/p&gt;
       &lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Normal&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;plot!&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdf&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Beta&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alpha&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lw&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;,&lt;/span&gt;
       &lt;span class=&quot;n&quot;&gt;labels&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Beta&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/krz/Pulpit/blog/figure/a04.png&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;savefig&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;/home/.../a04.png&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 &lt;/details&gt;
 &lt;p&gt;&lt;br /&gt;
 &lt;/p&gt;
 
-&lt;figure&gt;
-  &lt;center&gt;
-&lt;img alt=&quot;png&quot; src=&quot;/figure/a04.png&quot; /&gt;
-&lt;/center&gt;
-&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/a04.png&quot; alt=&quot;a04&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Za pomocą rozkładu normalnego można aproksymować (przybliżać) rozkłady dyskretne oraz ciągłe. W przypadku przybliżeń rozkładów dyskretnych należy pamiętać o stosowaniu korekty na ciągłość:&lt;/p&gt;
 

@@ -105,18 +105,9 @@ bar(X,Y,labels="Binomial",
     xlab="Liczba sukcesów", ylab="Prawdopodobieństwo",
     titlefontsize=10, title="Dwumianowy rozkład prawdopodobieństwa")
 annotate!(X,Y,Y,8)
-savefig("/home/krz/Pulpit/blog/figure/a01.png")
+savefig("/home/.../a01.png")
 ```
-
-![a01](/assets/a01.png)
-
-![a01]({{ "/assets/a01.png" | relative_url }}) 
-
-<figure>
-<center>
-<img alt="png" src="/figure/a01.png">
-</center>
-</figure>
+![a01]({{ "/assets/a01.png" | relative_url }})
 
 Prawdopodobieństwo tego, że np. reszka wystąpi co najwyżej dwa razy (skumulowane prawdopodobieństwo) będzie równe:
 
@@ -143,13 +134,9 @@ bar(X,Y,labels="Binomial",legend=:topleft,
     xlab="Liczba sukcesów", ylab="Skumulowane prawdopodobieństwo",
     titlefontsize=10, title="Skumulowany rozkład prawdopodobieństwa")
 annotate!(X,Y,Y,8)
-savefig("/home/krz/Pulpit/blog/figure/a02.png")
+savefig("/home/.../a02.png")
 ```
-<figure>
-<center>
-<img alt="png" src="/figure/a02.png">
-</center>
-</figure>
+![a02]({{ "/assets/a02.png" | relative_url }})
 
 # Rzut kostką do gry
 
@@ -209,17 +196,13 @@ plot!(x -> pdf(Normal(mu1,sd1),x), color=:green, alpha=0.45, lw=3,
       labels="Normal")
 scatter!(collect(keys(c1)),pdf.(Binomial(round(n1), p1),collect(keys(c1))),labels="Binomial",
          markerstrokecolor = :red, markercolor = :red, alpha = 0.5)
-savefig("/home/krz/Pulpit/blog/figure/a03.png")
+savefig("/home/.../a03.png")
 ```
 </details>
 <br/>
 {::options parse_block_html="false" /}
 
-<figure>
-<center>
-<img alt="png" src="/figure/a03.png">
-</center>
-</figure>
+![a03]({{ "/assets/a03.png" | relative_url }})
 
 Dla dużych $n$ prawdopodobieństwo sukcesu $p=n_1/n$ ma asymptotycznie rozkład normalny gdzie:
 
@@ -253,17 +236,13 @@ plot!(x -> pdf(Normal(MU1,SD1),x), color=:green, alpha=0.45, lw=3,
       labels="Normal")
 plot!(x -> pdf(Beta(a,b),x), color=:red, alpha=0.4, lw=3,
       labels="Beta")
-savefig("/home/krz/Pulpit/blog/figure/a04.png")
+savefig("/home/.../a04.png")
 ```
 </details>
 <br/>
 {::options parse_block_html="false" /}
 
-<figure>
-<center>
-<img alt="png" src="/figure/a04.png">
-</center>
-</figure>
+![a04]({{ "/assets/a04.png" | relative_url }})
 
 Za pomocą rozkładu normalnego można aproksymować (przybliżać) rozkłady dyskretne oraz ciągłe. W przypadku przybliżeń rozkładów dyskretnych należy pamiętać o stosowaniu korekty na ciągłość:
 

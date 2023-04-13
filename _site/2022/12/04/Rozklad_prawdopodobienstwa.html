@@ -136,18 +136,9 @@ to dokładne prawdopodobieństwo tego zdarzenia wyniesie:</p>
     <span class="n">xlab</span><span class="o">=</span><span class="s">"Liczba sukcesów"</span><span class="x">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">"Prawdopodobieństwo"</span><span class="x">,</span>
     <span class="n">titlefontsize</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span> <span class="n">title</span><span class="o">=</span><span class="s">"Dwumianowy rozkład prawdopodobieństwa"</span><span class="x">)</span>
 <span class="n">annotate!</span><span class="x">(</span><span class="n">X</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="mi">8</span><span class="x">)</span>
-<span class="n">savefig</span><span class="x">(</span><span class="s">"/home/krz/Pulpit/blog/figure/a01.png"</span><span class="x">)</span>
+<span class="n">savefig</span><span class="x">(</span><span class="s">"/home/.../a01.png"</span><span class="x">)</span>
 </code></pre></div></div>
-
 <p><img src="/assets/a01.png" alt="a01" /></p>
-
-<p><img src="/assets/a01.png" alt="a01" /></p>
-
-<figure>
-<center>
-<img alt="png" src="/figure/a01.png" />
-</center>
-</figure>
 
 <p>Prawdopodobieństwo tego, że np. reszka wystąpi co najwyżej dwa razy (skumulowane prawdopodobieństwo) będzie równe:</p>
 
@@ -172,13 +163,9 @@ to dokładne prawdopodobieństwo tego zdarzenia wyniesie:</p>
     <span class="n">xlab</span><span class="o">=</span><span class="s">"Liczba sukcesów"</span><span class="x">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">"Skumulowane prawdopodobieństwo"</span><span class="x">,</span>
     <span class="n">titlefontsize</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span> <span class="n">title</span><span class="o">=</span><span class="s">"Skumulowany rozkład prawdopodobieństwa"</span><span class="x">)</span>
 <span class="n">annotate!</span><span class="x">(</span><span class="n">X</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="mi">8</span><span class="x">)</span>
-<span class="n">savefig</span><span class="x">(</span><span class="s">"/home/krz/Pulpit/blog/figure/a02.png"</span><span class="x">)</span>
+<span class="n">savefig</span><span class="x">(</span><span class="s">"/home/.../a02.png"</span><span class="x">)</span>
 </code></pre></div></div>
-<figure>
-<center>
-<img alt="png" src="/figure/a02.png" />
-</center>
-</figure>
+<p><img src="/assets/a02.png" alt="a02" /></p>
 
 <h1 id="rzut-kostką-do-gry">Rzut kostką do gry</h1>
 
@@ -233,17 +220,13 @@ suma oczek będzie równa 6 wynosi:</p>
       <span class="n">labels</span><span class="o">=</span><span class="s">"Normal"</span><span class="x">)</span>
 <span class="n">scatter!</span><span class="x">(</span><span class="n">collect</span><span class="x">(</span><span class="n">keys</span><span class="x">(</span><span class="n">c1</span><span class="x">)),</span><span class="n">pdf</span><span class="o">.</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="n">round</span><span class="x">(</span><span class="n">n1</span><span class="x">),</span> <span class="n">p1</span><span class="x">),</span><span class="n">collect</span><span class="x">(</span><span class="n">keys</span><span class="x">(</span><span class="n">c1</span><span class="x">))),</span><span class="n">labels</span><span class="o">=</span><span class="s">"Binomial"</span><span class="x">,</span>
          <span class="n">markerstrokecolor</span> <span class="o">=</span> <span class="o">:</span><span class="n">red</span><span class="x">,</span> <span class="n">markercolor</span> <span class="o">=</span> <span class="o">:</span><span class="n">red</span><span class="x">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span><span class="x">)</span>
-<span class="n">savefig</span><span class="x">(</span><span class="s">"/home/krz/Pulpit/blog/figure/a03.png"</span><span class="x">)</span>
+<span class="n">savefig</span><span class="x">(</span><span class="s">"/home/.../a03.png"</span><span class="x">)</span>
 </code></pre></div>  </div>
 </details>
 <p><br />
 </p>
 
-<figure>
-  <center>
-<img alt="png" src="/figure/a03.png" />
-</center>
-</figure>
+<p><img src="/assets/a03.png" alt="a03" /></p>
 
 <p>Dla dużych $n$ prawdopodobieństwo sukcesu $p=n_1/n$ ma asymptotycznie rozkład normalny gdzie:</p>
 
@@ -275,17 +258,13 @@ suma oczek będzie równa 6 wynosi:</p>
       <span class="n">labels</span><span class="o">=</span><span class="s">"Normal"</span><span class="x">)</span>
 <span class="n">plot!</span><span class="x">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">pdf</span><span class="x">(</span><span class="n">Beta</span><span class="x">(</span><span class="n">a</span><span class="x">,</span><span class="n">b</span><span class="x">),</span><span class="n">x</span><span class="x">),</span> <span class="n">color</span><span class="o">=:</span><span class="n">red</span><span class="x">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="x">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="x">,</span>
       <span class="n">labels</span><span class="o">=</span><span class="s">"Beta"</span><span class="x">)</span>
-<span class="n">savefig</span><span class="x">(</span><span class="s">"/home/krz/Pulpit/blog/figure/a04.png"</span><span class="x">)</span>
+<span class="n">savefig</span><span class="x">(</span><span class="s">"/home/.../a04.png"</span><span class="x">)</span>
 </code></pre></div>  </div>
 </details>
 <p><br />
 </p>
 
-<figure>
-  <center>
-<img alt="png" src="/figure/a04.png" />
-</center>
-</figure>
+<p><img src="/assets/a04.png" alt="a04" /></p>
 
 <p>Za pomocą rozkładu normalnego można aproksymować (przybliżać) rozkłady dyskretne oraz ciągłe. W przypadku przybliżeń rozkładów dyskretnych należy pamiętać o stosowaniu korekty na ciągłość:</p>
 
