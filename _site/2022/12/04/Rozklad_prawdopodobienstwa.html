@@ -89,6 +89,7 @@
  <span class="mi">2</span>
  <span class="mi">2</span>
  <span class="mi">3</span>
+<span class="c"># rozkład liczby sukcesów:</span>
 <span class="n">sort</span><span class="x">(</span><span class="n">countmap</span><span class="x">(</span><span class="n">res</span><span class="x">))</span>
 <span class="n">OrderedCollections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="x">{</span><span class="kt">Int64</span><span class="x">,</span> <span class="kt">Int64</span><span class="x">}</span> <span class="n">with</span> <span class="mi">4</span> <span class="n">entries</span><span class="o">:</span>
   <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">1</span>
@@ -96,49 +97,77 @@
   <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">3</span>
   <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">1</span>
 </code></pre></div></div>
-<p>Dla większej liczby rzutów monetą wyznaczenie wszystkich możliwych wyników może być kłopotliwe ponieważ ich liczba rośnie wykładniczo.
-Rozwiązaniem może być wykorzystanie generatora liczb losowych z rozkładu Bernulliego aby wygenerować dowolną liczbę prób Bernoulliego np. $10000$. Poniżej symulacja rozkładu liczby sukcesów w trzech rzutach monetą.</p>
-<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 10000 prób losowych Bernoulliego:</span>
-<span class="n">S</span> <span class="o">=</span> <span class="n">rand</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">1</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">3</span><span class="x">,</span><span class="mi">10000</span><span class="x">)</span>
-<span class="mi">3</span><span class="n">×10000</span> <span class="kt">Matrix</span><span class="x">{</span><span class="kt">Int64</span><span class="x">}</span><span class="o">:</span>
- <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="n">…</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>
- <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">1</span>     <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>
- <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">1</span>  <span class="mi">0</span>     <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">1</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>  <span class="mi">0</span>
-
-<span class="n">res1</span> <span class="o">=</span> <span class="n">vec</span><span class="x">(</span><span class="n">sum</span><span class="x">(</span><span class="n">S</span><span class="x">,</span> <span class="n">dims</span><span class="o">=</span><span class="mi">1</span><span class="x">));</span>
-<span class="n">sort</span><span class="x">(</span><span class="n">countmap</span><span class="x">(</span><span class="n">res1</span><span class="x">))</span>
-<span class="n">OrderedCollections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="x">{</span><span class="kt">Int64</span><span class="x">,</span> <span class="kt">Int64</span><span class="x">}</span> <span class="n">with</span> <span class="mi">4</span> <span class="n">entries</span><span class="o">:</span>
-  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">1264</span>
-  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">3726</span>
-  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">3756</span>
-  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">1254</span>
-</code></pre></div></div>
 <p>Jeśli liczbą sukcesów będzie to, że reszka wystąpi dokładnie dwa razy (są trzy takie przypadki)
 to dokładne prawdopodobieństwo tego zdarzenia wyniesie:</p>
 
 \[P(X=2)=3/8=0.375\]
 
-<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># dokładne prawdopodobieństwo:</span>
-<span class="n">mean</span><span class="x">(</span><span class="n">res</span><span class="o">.==</span><span class="mi">2</span><span class="x">)</span>
-<span class="mf">0.375</span>
-<span class="c"># Binomial prawdopodobieństwo:</span>
-<span class="n">pdf</span><span class="o">.</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">3</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">2</span><span class="x">)</span>
-<span class="mf">0.3750000000000001</span>
-<span class="c"># symulacja dokładnego prawdopodobieństwa p-value=3756/10000:</span>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># dokładne prawdopodobieństwo dla 0,1,2,3:</span>
+<span class="n">map</span><span class="x">(</span><span class="n">x</span><span class="o">-&gt;</span> <span class="n">mean</span><span class="x">(</span><span class="n">res</span><span class="o">.==</span><span class="n">x</span><span class="x">),</span><span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">)</span>
+<span class="mi">4</span><span class="o">-</span><span class="n">element</span> <span class="kt">Vector</span><span class="x">{</span><span class="kt">Float64</span><span class="x">}</span><span class="o">:</span>
+ <span class="mf">0.125</span>
+ <span class="mf">0.375</span>
+ <span class="mf">0.375</span>
+ <span class="mf">0.125</span>
+</code></pre></div></div>
+<p>Dla większej liczby rzutów monetą wyznaczenie wszystkich możliwych wyników może być kłopotliwe ponieważ ich liczba rośnie wykładniczo.
+Rozwiązaniem może być wykorzystanie generatora liczb losowych z rozkładu Bernulliego aby wygenerować dowolną liczbę prób Bernoulliego np. $10000$. Poniżej symulacja rozkładu liczby sukcesów w trzech rzutach monetą.</p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># liczba sukcesów dla 10000 prób losowych z rozkładu Bernoulliego:</span>
+<span class="n">res1</span> <span class="o">=</span> <span class="x">[</span><span class="n">sum</span><span class="x">(</span><span class="n">rand</span><span class="x">(</span><span class="mi">0</span><span class="o">:</span><span class="mi">1</span><span class="x">,</span><span class="mi">3</span><span class="x">))</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10000</span><span class="x">];</span>
+<span class="n">sort</span><span class="x">(</span><span class="n">countmap</span><span class="x">(</span><span class="n">res1</span><span class="x">))</span>
+<span class="n">OrderedCollections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="x">{</span><span class="kt">Int64</span><span class="x">,</span> <span class="kt">Int64</span><span class="x">}</span> <span class="n">with</span> <span class="mi">4</span> <span class="n">entries</span><span class="o">:</span>
+  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">1296</span>
+  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">3730</span>
+  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">3743</span>
+  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">1231</span>
 <span class="n">mean</span><span class="x">(</span><span class="n">res1</span><span class="o">.==</span><span class="mi">2</span><span class="x">)</span>
+<span class="mf">0.3743</span>
+
+<span class="c"># liczba sukcesów dla 10000 prób losowych z rozkładu Bernoulliego:</span>
+<span class="n">res2</span> <span class="o">=</span> <span class="x">[</span><span class="n">sum</span><span class="x">(</span><span class="n">rand</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">1</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">3</span><span class="x">))</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">10000</span><span class="x">];</span>
+<span class="n">sort</span><span class="x">(</span><span class="n">countmap</span><span class="x">(</span><span class="n">res2</span><span class="x">))</span>
+<span class="n">OrderedCollections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="x">{</span><span class="kt">Int64</span><span class="x">,</span> <span class="kt">Int64</span><span class="x">}</span> <span class="n">with</span> <span class="mi">4</span> <span class="n">entries</span><span class="o">:</span>
+  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">1247</span>
+  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">3736</span>
+  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">3792</span>
+  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">1225</span>
+<span class="c"># symulacja dokładnego prawdopodobieństwa:</span>
+<span class="n">mean</span><span class="x">(</span><span class="n">res2</span><span class="o">.==</span><span class="mi">2</span><span class="x">)</span>
+<span class="mf">0.3792</span>
+
+<span class="c"># liczba sukcesów dla 10000 liczb losowych z rozkładu dwumianowego:</span>
+<span class="n">res3</span> <span class="o">=</span> <span class="n">rand</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">3</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">10000</span><span class="x">);</span>
+<span class="n">sort</span><span class="x">(</span><span class="n">countmap</span><span class="x">(</span><span class="n">res3</span><span class="x">))</span>
+<span class="n">OrderedCollections</span><span class="o">.</span><span class="n">OrderedDict</span><span class="x">{</span><span class="kt">Int64</span><span class="x">,</span> <span class="kt">Int64</span><span class="x">}</span> <span class="n">with</span> <span class="mi">4</span> <span class="n">entries</span><span class="o">:</span>
+  <span class="mi">0</span> <span class="o">=&gt;</span> <span class="mi">1203</span>
+  <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">3789</span>
+  <span class="mi">2</span> <span class="o">=&gt;</span> <span class="mi">3756</span>
+  <span class="mi">3</span> <span class="o">=&gt;</span> <span class="mi">1252</span>
+<span class="c"># symulacja dokładnego prawdopodobieństwa:</span>
+<span class="n">mean</span><span class="x">(</span><span class="n">res3</span><span class="o">.==</span><span class="mi">2</span><span class="x">)</span>
 <span class="mf">0.3756</span>
 </code></pre></div></div>
 
-<p>Do graficznej prezentacji dokładnego rozkładu prawdopodobieństwa liczby sukcesów np. trzykrotnego rzutu monetą można wykorzystać rozkład dwumianowy $\mathrm{B}(3,1/2)$.</p>
-<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span><span class="x">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">,</span> <span class="n">round</span><span class="o">.</span><span class="x">(</span><span class="n">pdf</span><span class="o">.</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">3</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">),</span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="x">);</span>
+<p>Do graficznej prezentacji dokładnego rozkładu prawdopodobieństwa liczby sukcesów np. trzykrotnego rzutu monetą można wykorzystać rozkład dwumianowy o parametrach: $n=3$ oraz $p=0,5$.</p>
+
+<details>
+  <summary><strong>CODE</strong></summary>
+  <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span><span class="x">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">,</span> <span class="n">round</span><span class="o">.</span><span class="x">(</span><span class="n">pdf</span><span class="o">.</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">3</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">),</span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="x">);</span>
 <span class="n">bar</span><span class="x">(</span><span class="n">X</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="n">labels</span><span class="o">=</span><span class="s">"Binomial"</span><span class="x">,</span>
     <span class="n">fillcolor</span><span class="o">=</span><span class="s">"blue"</span><span class="x">,</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">0.3</span><span class="x">,</span><span class="n">lc</span><span class="o">=</span><span class="s">"white"</span><span class="x">,</span>
     <span class="n">xlab</span><span class="o">=</span><span class="s">"Liczba sukcesów"</span><span class="x">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">"Prawdopodobieństwo"</span><span class="x">,</span>
     <span class="n">titlefontsize</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span> <span class="n">title</span><span class="o">=</span><span class="s">"Dwumianowy rozkład prawdopodobieństwa"</span><span class="x">)</span>
 <span class="n">annotate!</span><span class="x">(</span><span class="n">X</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="mi">8</span><span class="x">)</span>
 <span class="n">savefig</span><span class="x">(</span><span class="s">"/home/.../a01.png"</span><span class="x">)</span>
+</code></pre></div>  </div>
+</details>
+<p><br />
+
+<img src="/assets/a01.png" alt="a01" /></p>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Binomial prawdopodobieństwo:</span>
+<span class="n">pdf</span><span class="o">.</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">3</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">2</span><span class="x">)</span>
+<span class="mf">0.3750000000000001</span>
 </code></pre></div></div>
-<p><img src="/assets/a01.png" alt="a01" /></p>
 
 <p>Prawdopodobieństwo tego, że np. reszka wystąpi co najwyżej dwa razy (skumulowane prawdopodobieństwo) będzie równe:</p>
 
@@ -152,19 +181,23 @@ to dokładne prawdopodobieństwo tego zdarzenia wyniesie:</p>
 <span class="mf">0.875</span>
 <span class="c"># symulacja dokładnego prawdopodobieństwa:</span>
 <span class="n">mean</span><span class="x">(</span><span class="n">res1</span><span class="o">.&lt;=</span><span class="mi">2</span><span class="x">)</span>
-<span class="mf">0.8746</span>
+<span class="mf">0.8818</span>
 </code></pre></div></div>
 
-<p>Skumulowane prawdopodobieństwo:</p>
-
-<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span><span class="x">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">,</span> <span class="n">round</span><span class="o">.</span><span class="x">(</span><span class="n">cdf</span><span class="o">.</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">3</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">),</span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="x">);</span>
+<details>
+  <summary><strong>CODE</strong></summary>
+  <div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">X</span><span class="x">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">,</span> <span class="n">round</span><span class="o">.</span><span class="x">(</span><span class="n">cdf</span><span class="o">.</span><span class="x">(</span><span class="n">Binomial</span><span class="x">(</span><span class="mi">3</span><span class="x">,</span><span class="mf">0.5</span><span class="x">),</span><span class="mi">0</span><span class="o">:</span><span class="mi">3</span><span class="x">),</span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="x">);</span>
 <span class="n">bar</span><span class="x">(</span><span class="n">X</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="n">labels</span><span class="o">=</span><span class="s">"Binomial"</span><span class="x">,</span><span class="n">legend</span><span class="o">=:</span><span class="n">topleft</span><span class="x">,</span>
     <span class="n">fillcolor</span><span class="o">=</span><span class="s">"blue"</span><span class="x">,</span><span class="n">fillalpha</span><span class="o">=</span><span class="mf">0.3</span><span class="x">,</span><span class="n">lc</span><span class="o">=</span><span class="s">"white"</span><span class="x">,</span>
     <span class="n">xlab</span><span class="o">=</span><span class="s">"Liczba sukcesów"</span><span class="x">,</span> <span class="n">ylab</span><span class="o">=</span><span class="s">"Skumulowane prawdopodobieństwo"</span><span class="x">,</span>
     <span class="n">titlefontsize</span><span class="o">=</span><span class="mi">10</span><span class="x">,</span> <span class="n">title</span><span class="o">=</span><span class="s">"Skumulowany rozkład prawdopodobieństwa"</span><span class="x">)</span>
 <span class="n">annotate!</span><span class="x">(</span><span class="n">X</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="n">Y</span><span class="x">,</span><span class="mi">8</span><span class="x">)</span>
 <span class="n">savefig</span><span class="x">(</span><span class="s">"/home/.../a02.png"</span><span class="x">)</span>
-</code></pre></div></div>
+</code></pre></div>  </div>
+</details>
+<p><br />
+</p>
+
 <p><img src="/assets/a02.png" alt="a02" /></p>
 
 <h1 id="rzut-kostką-do-gry">Rzut kostką do gry</h1>
@@ -190,14 +223,14 @@ suma oczek będzie równa 6 wynosi:</p>
 \[P(X=6)=5/36=0.1389\]
 
 <p>Dla dużych $n$ wyznaczenie dokładnego rozkładu prawdopodobieństwa może być utrudnione ze względu na dużą ilość obliczeń. Rozwiązaniem może być aproksymacja czyli przybliżanie rozkładu dokładnego za pomocą symulacji.</p>
-<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># symulacja dla ośmiu rzutów kostką:</span>
+<div class="language-julia highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># symulacja sumy oczek dla ośmiu rzutów kostką:</span>
 <span class="n">m</span> <span class="o">=</span> <span class="x">[</span><span class="n">sum</span><span class="x">(</span><span class="n">sample</span><span class="x">(</span><span class="mi">1</span><span class="o">:</span><span class="mi">6</span><span class="x">,</span><span class="mi">8</span><span class="x">))</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">:</span><span class="mi">100000</span><span class="x">];</span>
 <span class="c"># parametry rozkładu normalnego:</span>
 <span class="n">mu1</span><span class="x">,</span> <span class="n">sd1</span> <span class="o">=</span> <span class="n">mean</span><span class="x">(</span><span class="n">m</span><span class="x">),</span> <span class="n">std</span><span class="x">(</span><span class="n">m</span><span class="x">)</span>
 <span class="x">(</span><span class="mf">28.01644</span><span class="x">,</span> <span class="mf">4.820769868456823</span><span class="x">)</span>
 </code></pre></div></div>
 
-<p>Rozkład normalny $\mathrm{N(\mu,\sigma)}$ w którym:</p>
+<p>Dla dużych $n$ liczba sukcesów $n_1$ ma asymptotycznie rozkład normalny $\mathrm{N(\mu,\sigma)}$ gdzie:</p>
 
 \[\mu=np,\quad \sigma=\sqrt{np(1 − p)}\]
 
@@ -232,7 +265,7 @@ suma oczek będzie równa 6 wynosi:</p>
 
 \[\mu=p,\quad \sigma=\sqrt{p(1-p)/n}\]
 
-<p>Dodatkowo można założyć, że proporcja sukcesu $p$ ma rozkład beta $\mathrm{Bet}(n_1,n_0)$ o parametrach $n_1$ oraz $n_0$ gdzie:</p>
+<p>Dodatkowo można założyć, że proporcja sukcesu $p$ ma rozkład beta $\mathrm{Bet}(n_1,n_0)$ o parametrach:</p>
 
 \[n_1=\mu\cdot\eta,\quad n_0=(1-\mu)\cdot\eta\]
 

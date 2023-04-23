@@ -53,30 +53,13 @@ res = sum.(sol)
  2
  2
  3
+# rozkład liczby sukcesów:
 sort(countmap(res))
 OrderedCollections.OrderedDict{Int64, Int64} with 4 entries:
   0 => 1
   1 => 3
   2 => 3
   3 => 1
-```
-Dla większej liczby rzutów monetą wyznaczenie wszystkich możliwych wyników może być kłopotliwe ponieważ ich liczba rośnie wykładniczo.
-Rozwiązaniem może być wykorzystanie generatora liczb losowych z rozkładu Bernulliego aby wygenerować dowolną liczbę prób Bernoulliego np. $10000$. Poniżej symulacja rozkładu liczby sukcesów w trzech rzutach monetą.
-```julia
-# 10000 prób losowych Bernoulliego:
-S = rand(Binomial(1,0.5),3,10000)
-3×10000 Matrix{Int64}:
- 1  1  0  0  0  0  0  0  0  1  0  0  0  0  0  0  …  1  1  1  0  0  0  0  0  1
- 0  0  1  0  0  0  1  0  0  1  0  1  0  0  1  1     0  1  1  0  0  0  0  1  0
- 0  0  0  0  0  1  0  1  1  1  1  1  1  1  1  0     1  0  1  0  0  0  0  0  0
-
-res1 = vec(sum(S, dims=1));
-sort(countmap(res1))
-OrderedCollections.OrderedDict{Int64, Int64} with 4 entries:
-  0 => 1264
-  1 => 3726
-  2 => 3756
-  3 => 1254
 ```
 Jeśli liczbą sukcesów będzie to, że reszka wystąpi dokładnie dwa razy (są trzy takie przypadki)
 to dokładne prawdopodobieństwo tego zdarzenia wyniesie:
@@ -86,18 +69,57 @@ P(X=2)=3/8=0.375
 $$
 
 ```julia
-# dokładne prawdopodobieństwo:
-mean(res.==2)
-0.375
-# Binomial prawdopodobieństwo:
-pdf.(Binomial(3,0.5),2)
-0.3750000000000001
-# symulacja dokładnego prawdopodobieństwa p-value=3756/10000:
+# dokładne prawdopodobieństwo dla 0,1,2,3:
+map(x-> mean(res.==x),0:3)
+4-element Vector{Float64}:
+ 0.125
+ 0.375
+ 0.375
+ 0.125
+```
+Dla większej liczby rzutów monetą wyznaczenie wszystkich możliwych wyników może być kłopotliwe ponieważ ich liczba rośnie wykładniczo.
+Rozwiązaniem może być wykorzystanie generatora liczb losowych z rozkładu Bernulliego aby wygenerować dowolną liczbę prób Bernoulliego np. $10000$. Poniżej symulacja rozkładu liczby sukcesów w trzech rzutach monetą.
+```julia
+# liczba sukcesów dla 10000 prób losowych z rozkładu Bernoulliego:
+res1 = [sum(rand(0:1,3)) for i in 1:10000];
+sort(countmap(res1))
+OrderedCollections.OrderedDict{Int64, Int64} with 4 entries:
+  0 => 1296
+  1 => 3730
+  2 => 3743
+  3 => 1231
 mean(res1.==2)
+0.3743
+
+# liczba sukcesów dla 10000 prób losowych z rozkładu Bernoulliego:
+res2 = [sum(rand(Binomial(1,0.5),3)) for i in 1:10000];
+sort(countmap(res2))
+OrderedCollections.OrderedDict{Int64, Int64} with 4 entries:
+  0 => 1247
+  1 => 3736
+  2 => 3792
+  3 => 1225
+# symulacja dokładnego prawdopodobieństwa:
+mean(res2.==2)
+0.3792
+
+# liczba sukcesów dla 10000 liczb losowych z rozkładu dwumianowego:
+res3 = rand(Binomial(3,0.5),10000);
+sort(countmap(res3))
+OrderedCollections.OrderedDict{Int64, Int64} with 4 entries:
+  0 => 1203
+  1 => 3789
+  2 => 3756
+  3 => 1252
+# symulacja dokładnego prawdopodobieństwa:
+mean(res3.==2)
 0.3756
 ```
 
-Do graficznej prezentacji dokładnego rozkładu prawdopodobieństwa liczby sukcesów np. trzykrotnego rzutu monetą można wykorzystać rozkład dwumianowy $\mathrm{B}(3,1/2)$.
+Do graficznej prezentacji dokładnego rozkładu prawdopodobieństwa liczby sukcesów np. trzykrotnego rzutu monetą można wykorzystać rozkład dwumianowy o parametrach: $n=3$ oraz $p=0,5$.
+
+{::options parse_block_html="true" /}
+<details><summary markdown="span">**CODE**</summary>
 ```julia
 X, Y = 0:3, round.(pdf.(Binomial(3,0.5),0:3),digits=3);
 bar(X,Y,labels="Binomial",
@@ -107,7 +129,15 @@ bar(X,Y,labels="Binomial",
 annotate!(X,Y,Y,8)
 savefig("/home/.../a01.png")
 ```
+</details>
+<br/>
+{::options parse_block_html="false" /}
 ![a01]({{ "/assets/a01.png" | relative_url }})
+```julia
+# Binomial prawdopodobieństwo:
+pdf.(Binomial(3,0.5),2)
+0.3750000000000001
+```
 
 Prawdopodobieństwo tego, że np. reszka wystąpi co najwyżej dwa razy (skumulowane prawdopodobieństwo) będzie równe:
 
@@ -122,11 +152,11 @@ cdf.(Binomial(3,0.5),2)
 0.875
 # symulacja dokładnego prawdopodobieństwa:
 mean(res1.<=2)
-0.8746
+0.8818
 ```
 
-Skumulowane prawdopodobieństwo:
-
+{::options parse_block_html="true" /}
+<details><summary markdown="span">**CODE**</summary>
 ```julia
 X, Y = 0:3, round.(cdf.(Binomial(3,0.5),0:3),digits=3);
 bar(X,Y,labels="Binomial",legend=:topleft,
@@ -136,6 +166,10 @@ bar(X,Y,labels="Binomial",legend=:topleft,
 annotate!(X,Y,Y,8)
 savefig("/home/.../a02.png")
 ```
+</details>
+<br/>
+{::options parse_block_html="false" /}
+
 ![a02]({{ "/assets/a02.png" | relative_url }})
 
 # Rzut kostką do gry
@@ -164,14 +198,14 @@ $$P(X=6)=5/36=0.1389$$
 
 Dla dużych $n$ wyznaczenie dokładnego rozkładu prawdopodobieństwa może być utrudnione ze względu na dużą ilość obliczeń. Rozwiązaniem może być aproksymacja czyli przybliżanie rozkładu dokładnego za pomocą symulacji. 
 ```julia
-# symulacja dla ośmiu rzutów kostką:
+# symulacja sumy oczek dla ośmiu rzutów kostką:
 m = [sum(sample(1:6,8)) for i in 1:100000];
 # parametry rozkładu normalnego:
 mu1, sd1 = mean(m), std(m)
 (28.01644, 4.820769868456823)
 ```
 
-Rozkład normalny $\mathrm{N(\mu,\sigma)}$ w którym:
+Dla dużych $n$ liczba sukcesów $n_1$ ma asymptotycznie rozkład normalny $\mathrm{N(\mu,\sigma)}$ gdzie:
 
 $$\mu=np,\quad \sigma=\sqrt{np(1 − p)}$$
 
@@ -208,7 +242,7 @@ Dla dużych $n$ prawdopodobieństwo sukcesu $p=n_1/n$ ma asymptotycznie rozkład
 
 $$\mu=p,\quad \sigma=\sqrt{p(1-p)/n}$$
 
-Dodatkowo można założyć, że proporcja sukcesu $p$ ma rozkład beta $\mathrm{Bet}(n_1,n_0)$ o parametrach $n_1$ oraz $n_0$ gdzie:
+Dodatkowo można założyć, że proporcja sukcesu $p$ ma rozkład beta $\mathrm{Bet}(n_1,n_0)$ o parametrach:
 
 $$n_1=\mu\cdot\eta,\quad n_0=(1-\mu)\cdot\eta$$
 
